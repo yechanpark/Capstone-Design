@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" >
+   
+
+    <bean id="showpageDAO" class="DB.PageshowDao">
+		<constructor-arg value="4" />
+    </bean>
+
+	<!-- 어떤 DB를 사용할 것인가 -->
+    <bean id="connMaker" class="DB.ConnectionDAO">
+		<constructor-arg ref="d_connMaker2"/>
+    </bean>
+	
+	<bean id="n_connMaker" class="DB.NConnectionMaker">
+ 		<constructor-arg value="jdbc:ucanaccess://C:/Users/Administrator/workspace/CapstoneDesign/WebContent/WEB-INF/files/DBs/Database1.accdb"/>
+	</bean>
+
+	<bean id="d_connMaker" class="DB.DConnectionMaker">
+ 		<constructor-arg value="jdbc:mysql://localhost:8080/capstonedesign"/>
+ 		<constructor-arg value="root"/>
+ 		<constructor-arg value="admin"/>
+	</bean>
+	
+	<bean id="d_connMaker2" class="DB.DConnectionMaker">
+ 		<constructor-arg value="jdbc:mysql://localhost:3306/capstonedesign"/>
+ 		<constructor-arg value="root"/>
+ 		<constructor-arg value="admin"/>
+	</bean>
+	
+	
+	<bean id="user" class ="userDAO.User">
+		<constructor-arg value="jssong"/>
+	</bean>
+    
+	<bean id="Server_image_path" class="DB.Path">
+		<constructor-arg value="C:/Users/Administrator/workspace/CapstoneDesign/WebContent/Images" />
+    </bean>
+    
+    <bean id="Soft_image_path" class="DB.Path">
+		<constructor-arg value="/CapstoneDesign/Images" />
+    </bean>
+    
+    <bean id="Esbclient_properties" class="DB.Path">
+		<constructor-arg value="C:/Users/Administrator/workspace/CapstoneDesign/WebContent/WEB-INF/esbclient.properties" />
+    </bean>
+	
+	<bean id="serviceKey" class="DB.Path">
+		<constructor-arg value="i26lj3rklzjZAUtVoGJ7p05%2BCp7GXi%2BZ1S1CUiFDH9bd7XrzlVMKvj2xZxFmj%2BEPngctBqFwsii%2FxImQoifGxQ%3D%3D" />
+    </bean>
+
+	<bean id="serviceKey2" class="DB.Path">
+		<constructor-arg value="Xd5zeJljq8vYFxVTLFXGN1glLLov7C4Y7fKhE2Oahly%2BFaLcdAjqj4i6%2BQN2TyuPY6fXOEqJ7ah760xrE7PJgw%3D%3D" />
+    </bean>
+</beans>
